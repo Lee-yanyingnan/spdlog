@@ -6,6 +6,7 @@
 
 #include <cstdio>
 #include <chrono>
+#include <iostream>
 
 void load_levels_example();
 void stdout_logger_example();
@@ -32,6 +33,7 @@ void replace_default_logger_example();
 
 int main(int, char *[])
 {
+    std::cout << "test" << std::endl;
     // Log levels can be loaded from argv/env using "SPDLOG_LEVEL"
     load_levels_example();
 
@@ -58,7 +60,7 @@ int main(int, char *[])
     // Backtrace support
     // Loggers can store in a ring buffer all messages (including debug/trace) for later inspection.
     // When needed, call dump_backtrace() to see what happened:
-    spdlog::enable_backtrace(10); // create ring buffer with capacity of 10  messages
+    spdlog::enable_backtrace(5); // create ring buffer with capacity of 10  messages
     for (int i = 0; i < 100; i++)
     {
         spdlog::debug("Backtrace message {}", i); // not logged..
